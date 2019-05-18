@@ -14,7 +14,7 @@ import {
 export default class ID3Writer {
 
     _setIntegerFrame(name, value) {
-        const integer = parseInt(value, 10);
+        const integer = isNaN(parseInt(value.slice(0, 1), 10)) ? parseInt(value.slice(0, 1), 10) : value;
 
         this.frames.push({
             name,
